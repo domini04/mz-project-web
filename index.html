@@ -9,6 +9,8 @@
     }
   </style>
   <script>
+    var isBackgroundChanged = false;
+
     function sendGetRequest() {
       var xhr = new XMLHttpRequest();
       xhr.open("GET", "http://34.64.75.217:8080/users", true);
@@ -18,7 +20,14 @@
           var response = JSON.parse(xhr.responseText);
           var responseString = JSON.stringify(response);
           document.getElementById("response").textContent = responseString;
-          document.body.style.backgroundImage = "url('https://storage.cloud.google.com/cdn-bucket-mz-finalproject/doge.jpg?authuser=3')";
+
+          if (!isBackgroundChanged) {
+            document.body.style.backgroundImage = "url('https://storage.cloud.google.com/cdn-bucket-mz-finalproject/doge.jpg?authuser=3')";
+          } else {
+            document.body.style.backgroundImage = "none";
+          }
+          
+          isBackgroundChanged = !isBackgroundChanged;
         }
       };
 
