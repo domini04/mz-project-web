@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GET Request Example</title>
+  <script>
+    function sendGetRequest() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "http://34.64.75.217:8080/users", true);
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          var responseString = JSON.stringify(response);
+          document.getElementById("response").textContent = responseString;
+        }
+      };
+
+      xhr.send();
+    }
+  </script>
+</head>
+<body>
+  <h1>GET Request Example</h1>
+  <button onclick="sendGetRequest()">Send GET Request</button>
+  <div id="response"></div>
+</body>
+</html>
