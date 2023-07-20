@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GET Request Example</title>
+  <title>GET Request and Buttons Example</title>
   <style>
     body {
       background-image: none;
@@ -26,7 +26,7 @@
           } else {
             document.body.style.backgroundImage = "none";
           }
-          
+
           isBackgroundChanged = !isBackgroundChanged;
         }
       };
@@ -37,12 +37,17 @@
     function refreshPage() {
       location.reload();
     }
+
+    function openImageLink() {
+      window.open("https://storage.cloud.google.com/cdn-bucket-mz-finalproject/doge.jpg?authuser=3", "_blank");
+    }
   </script>
 </head>
 <body>
-  <h1>GET Request Example</h1>
+  <h1>GET Request and Buttons Example</h1>
   <button onclick="sendGetRequest()">Send GET Request</button>
   <button onclick="refreshPage()">Refresh Page</button>
+  <button onclick="openImageLink()">Open Image Link</button>
   <div id="response"></div>
 </body>
 </html>
